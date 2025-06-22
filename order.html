@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CakeVerse Order Form</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at 20% 30%, #f1c7ca 0%, transparent 20%),
+                  radial-gradient(circle at 70% 20%, #ffec98 0%, transparent 40%),
+                  radial-gradient(circle at 40% 80%, #abd8f1 0%, transparent 35%),
+                  radial-gradient(circle at 90% 60%, #fdd6f2 0%, transparent 30%),
+                  radial-gradient(circle at 40% 80%, #f0e5a6 0%, transparent 35%),
+                  radial-gradient(circle at 40% 80%, #c7e2f3 0%, transparent 40%),
+                  #ffffff;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    h1, h2, h3, h4 {
+      text-align: center;
+      color: #5b3e3e;
+      font-family: 'Georgia', serif;
+      margin-bottom: 20px;
+    }
+
+    form {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+      background-color: #fffdf9;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+    }
+
+    td {
+      padding: 15px;
+      vertical-align: top;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #4d3a3a;
+    }
+
+    input[type="text"],
+    select,
+    textarea {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #cdb6b6;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .options-group label {
+      display: inline-block;
+      margin: 6px 15px 10px 0;
+      font-size: 14px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 6px;
+    }
+
+    input[type="submit"] {
+      background-color: #f4a261;
+      color: white;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #e76f51;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      table, td {
+        display: block;
+        width: 100%;
+      }
+
+      td {
+        padding: 10px 0;
+      }
+
+      .options-group label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input[type="submit"] {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CakeVerse Customer Order Form</h1>
+
+  <form action="invoice.html" method="get">
+    <table>
+      <tr>
+        <td><label for="firstName">First Name:</label></td>
+        <td><input type="text" name="textbox1" id="firstName" required></td>
+      </tr>
+      <tr>
+        <td><label for="lastName">Last Name:</label></td>
+        <td><input type="text" name="textbox2" id="lastName" required></td>
+      </tr>
+      <tr>
+        <td><label for="address">Address:</label></td>
+        <td><input type="text" name="textbox3" id="address" required></td>
+      </tr>
+      <tr>
+        <td><label for="branch">Select Branch:</label></td>
+        <td>
+          <select name="select1" id="branch" required>
+            <option value="">-- Please Select --</option>
+            <option value="Tondo Manila">Tondo, Manila Branch</option>
+            <option value="Caloocan">Caloocan Branch</option>
+            <option value="Malabon">Malabon Branch</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr><td colspan="2"><h2>Order Layers</h2></td></tr>
+      <tr>
+        <td colspan="2" class="options-group center-text">
+          <label><input type="radio" name="layers" value="1" required>1 Layer</label>
+          <label><input type="radio" name="layers" value="2">2 Layers</label>
+          <label><input type="radio" name="layers" value="3">3 Layers</label>
+          <label><input type="radio" name="layers" value="4">4 Layers</label>
+          <label><input type="radio" name="layers" value="5">5 Layers</label>
+        </td>
+      </tr>
+
+      <tr><td colspan="2"><h3>Order Toppings</h3></td></tr>
+      <tr>
+        <td colspan="2" class="options-group center-text">
+          <label><input type="checkbox" name="toppings" value="cherry">Cherries</label>
+          <label><input type="checkbox" name="toppings" value="sprinkles">Sprinkles</label>
+          <label><input type="checkbox" name="toppings" value="whipped">Whipped Cream</label>
+          <label><input type="checkbox" name="toppings" value="mango">Mangoes</label>
+          <label><input type="checkbox" name="toppings" value="strawberry">Strawberries</label>
+          <label><input type="checkbox" name="toppings" value="almond">Almonds</label>
+        </td>
+      </tr>
+
+      <tr><td colspan="2"><h4>Cake Flavor (Choose only one)</h4></td></tr>
+      <tr>
+        <td colspan="2" class="options-group center-text">
+          <label><input type="radio" name="flavor" value="chocolate" required>Chocolate Cake</label>
+          <label><input type="radio" name="flavor" value="vanilla">Vanilla Cake</label>
+          <label><input type="radio" name="flavor" value="mocha">Mocha Cake</label>
+          <label><input type="radio" name="flavor" value="chiffon">Chiffon Cake</label>
+        </td>
+      </tr>
+
+      <tr>
+        <td><label for="note">Additional Note:</label></td>
+        <td><textarea name="note" id="note" rows="4" placeholder="Any special requests..."></textarea></td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="center-text">
+          <input type="submit" value="Submit Order">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+</html>
