@@ -12,7 +12,6 @@
       font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-
     body {
       height: 100vh;
       background:
@@ -31,7 +30,6 @@
       padding: 20px;
     }
 
-
     .login-container {
       background: #fff;
       padding: 60px 50px;
@@ -42,13 +40,20 @@
       text-align: center;
     }
 
-
     .login-container h1 {
       font-size: 48px;
       color: #4b0082;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
+    .intro {
+      font-weight: 600;
+      font-size: 20px;
+      margin-top: -5px;
+      margin-bottom: 25px;
+      color: #5d4037;
+      display: none; 
+    }
 
     .btn {
       width: 100%;
@@ -58,7 +63,6 @@
       border: none;
       border-radius: 12px;
       color: white;
-      background-color: #6a0dad;
       cursor: pointer;
       transition: background-color 0.3s ease;
       margin-top: 20px;
@@ -66,11 +70,28 @@
       display: inline-block;
     }
 
-
-    .btn:hover {
-      background-color: #4b0082;
+    .btn-signin {
+      background-color: #7b44b2;
     }
 
+    .btn-signin:hover {
+      background-color: #ab7ae4;
+    }
+
+    .btn-login {
+      background-color: #e640a9;
+      color: white;
+    }
+
+    .btn-login:hover {
+      background-color: rgb(218, 153, 208);
+    }
+
+    .separator {
+      margin: 30px 0 0 0;
+      font-weight: bold;
+      color: #050405;
+    }
 
     input {
       width: 100%;
@@ -80,7 +101,6 @@
       border: 1px solid #ccc;
       font-size: 20px;
     }
-
 
     .back-btn {
       background-color: transparent;
@@ -92,16 +112,13 @@
       text-decoration: underline;
     }
 
-
     .back-btn:hover {
       color: #4b0082;
     }
 
-
     #form-section, #finalMessage {
       display: none;
     }
-
 
     #message {
       margin-top: 30px;
@@ -109,17 +126,14 @@
       color: #4b0082;
     }
 
-
     @media (max-width: 768px) {
       .login-container {
         padding: 40px 30px;
       }
 
-
       .login-container h1 {
         font-size: 36px;
       }
-
 
       .btn, input {
         font-size: 18px;
@@ -131,62 +145,63 @@
 <body>
   <div class="login-container">
     <h1>CakeVerse</h1>
-    <p style="font-weight: 600; font-family: 'Segoe UI', 'Arial', sans-serif; font-style: normal; font-size: 20px; margin-top: -15px; margin-bottom: 35px; color: #1a1121;">
-    Craving cake? Sign up now and place your order in a few clicks!
+    <p class="intro" id="introText">
+      Craving cake? Sign up now and place your order in a few clicks!
     </p>
 
     <div id="choice-section">
-      <button class="btn" onclick="showForm('signin')">Sign In</button>
-      <button class="btn" onclick="showForm('login')">Log In</button>
+      <button class="btn btn-signin" onclick="showForm('signin')">Sign In</button>
+      <div class="separator">───────────── OR ─────────────</div>
+      <button class="btn btn-login" onclick="showForm('login')">Log In</button>
     </div>
 
     <div id="form-section">
       <input type="email" id="email" placeholder="Enter your email" required />
       <input type="password" id="password" placeholder="Enter your password" required />
-      <button class="btn" onclick="handleSubmit()">Continue</button>
-      <button class="back-btn" onclick="goBack()">Back</button>
+      <button class="btn btn-signin" onclick="handleSubmit()">Continue</button>
+      <button class="back-btn" onclick="goBack()"> <b>Back</b></button>
     </div>
 
     <div id="finalMessage">
       <p id="message">Welcome!</p>
-      <a href="order.html" class="btn">Proceed to Order Form</a>
+      <a href="welcome.html" class="btn btn-signin">Next</a>
     </div>
   </div>
 
   <script>
     let mode = "";
 
-
     function showForm(selectedMode) {
       mode = selectedMode;
       document.getElementById("choice-section").style.display = "none";
       document.getElementById("form-section").style.display = "block";
-    }
 
+      const introText = document.getElementById("introText");
+      introText.style.display = selectedMode === "signin" ? "block" : "none";
+    }
 
     function goBack() {
       document.getElementById("form-section").style.display = "none";
       document.getElementById("choice-section").style.display = "block";
       document.getElementById("email").value = "";
       document.getElementById("password").value = "";
-    }
 
+      // Show intro again by default
+      document.getElementById("introText").style.display = "block";
+    }
 
     function handleSubmit() {
       const email = document.getElementById("email").value.trim();
       const password = document.getElementById("password").value.trim();
-
 
       if (!email || !password) {
         alert("Please enter both email and password.");
         return;
       }
 
-
       const message = mode === 'signin'
         ? "🎉 Account created successfully!"
         : "👋 Welcome back!";
-
 
       document.getElementById("form-section").style.display = "none";
       document.getElementById("finalMessage").style.display = "block";
