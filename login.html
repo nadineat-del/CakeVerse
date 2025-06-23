@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CakeVerse Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+
+    body {
+      height: 100vh;
+      background:
+        radial-gradient(circle at 20% 30%, #f1c7ca 0%, transparent 20%),
+        radial-gradient(circle at 70% 20%, #ffec98 0%, transparent 40%),
+        radial-gradient(circle at 40% 80%, #abd8f1 0%, transparent 35%),
+        radial-gradient(circle at 90% 60%, #fdd6f2 0%, transparent 30%),
+        radial-gradient(circle at 40% 80%, #f0e5a6 0%, transparent 35%),
+        radial-gradient(circle at 40% 80%, #c7e2f3 0%, transparent 40%),
+        #ffffff;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+
+    .login-container {
+      background: #fff;
+      padding: 60px 50px;
+      border-radius: 24px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+    }
+
+
+    .login-container h1 {
+      font-size: 48px;
+      color: #4b0082;
+      margin-bottom: 40px;
+    }
+
+
+    .btn {
+      width: 100%;
+      padding: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      background-color: #6a0dad;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+
+    .btn:hover {
+      background-color: #4b0082;
+    }
+
+
+    input {
+      width: 100%;
+      padding: 18px;
+      margin: 18px 0;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 20px;
+    }
+
+
+    .back-btn {
+      background-color: transparent;
+      color: #6a0dad;
+      border: none;
+      font-size: 18px;
+      margin-top: 16px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+
+    .back-btn:hover {
+      color: #4b0082;
+    }
+
+
+    #form-section, #finalMessage {
+      display: none;
+    }
+
+
+    #message {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #4b0082;
+    }
+
+
+    @media (max-width: 768px) {
+      .login-container {
+        padding: 40px 30px;
+      }
+
+
+      .login-container h1 {
+        font-size: 36px;
+      }
+
+
+      .btn, input {
+        font-size: 18px;
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>CakeVerse</h1>
+
+
+   
+    <div id="choice-section">
+      <button class="btn" onclick="showForm('signin')">Sign In</button>
+      <button class="btn" onclick="showForm('login')">Log In</button>
+    </div>
+
+
+   
+    <div id="form-section">
+      <input type="email" id="email" placeholder="Enter your email" required />
+      <input type="password" id="password" placeholder="Enter your password" required />
+      <button class="btn" onclick="handleSubmit()">Continue</button>
+      <button class="back-btn" onclick="goBack()">Back</button>
+    </div>
+
+
+   
+    <div id="finalMessage">
+      <p id="message">Welcome!</p>
+      <a href="order.html" class="btn">Proceed to Order Form</a>
+    </div>
+  </div>
+
+
+  <script>
+    let mode = "";
+
+
+    function showForm(selectedMode) {
+      mode = selectedMode;
+      document.getElementById("choice-section").style.display = "none";
+      document.getElementById("form-section").style.display = "block";
+    }
+
+
+    function goBack() {
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("choice-section").style.display = "block";
+      document.getElementById("email").value = "";
+      document.getElementById("password").value = "";
+    }
+
+
+    function handleSubmit() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+
+      const message = mode === 'signin'
+        ? "🎉 Account created successfully!"
+        : "👋 Welcome back!";
+
+
+      document.getElementById("form-section").style.display = "none";
+      document.getElementById("finalMessage").style.display = "block";
+      document.getElementById("message").textContent = message;
+    }
+  </script>
+</body>
+</html>
