@@ -131,16 +131,15 @@
 <body>
   <div class="login-container">
     <h1>CakeVerse</h1>
+    <p style="font-weight: 600; font-family: 'Segoe UI', 'Arial', sans-serif; font-style: normal; font-size: 20px; margin-top: -15px; margin-bottom: 35px; color: #1a1121;">
+    Craving cake? Sign up now and place your order in a few clicks!
+    </p>
 
-
-   
     <div id="choice-section">
       <button class="btn" onclick="showForm('signin')">Sign In</button>
       <button class="btn" onclick="showForm('login')">Log In</button>
     </div>
 
-
-   
     <div id="form-section">
       <input type="email" id="email" placeholder="Enter your email" required />
       <input type="password" id="password" placeholder="Enter your password" required />
@@ -148,14 +147,11 @@
       <button class="back-btn" onclick="goBack()">Back</button>
     </div>
 
-
-   
     <div id="finalMessage">
       <p id="message">Welcome!</p>
       <a href="order.html" class="btn">Proceed to Order Form</a>
     </div>
   </div>
-
 
   <script>
     let mode = "";

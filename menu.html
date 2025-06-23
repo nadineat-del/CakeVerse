@@ -66,11 +66,18 @@
       font-size: 1.1em;
     }
 
-    /* ✅ Center-align the text under images */
+    /* ✅ Center-align all span text under the images */
     .gallery-table a span {
       display: block;
       text-align: center;
       margin-top: 10px;
+    }
+
+    /* ✅ Style specifically for the price text (2nd span) */
+    .gallery-table a span:last-child {
+      font-weight: normal;
+      font-size: 1em;
+      margin-top: 3px;
     }
 
     .back-link {
@@ -104,7 +111,7 @@
 </head>
 <body>
 
-  <h2>CakeVerse Best Seller</h2>
+  <h2>CakeVerse Best Sellers</h2>
   <hr>
 
   <form>
@@ -112,21 +119,23 @@
       <tr>
         <td>
           <a href="pics/pic1.jpg">
-            <img src="pics/pic1.jpg" alt="Choco Fairy Cake 
-            ₱3,500">
+            <img src="pics/pic1.jpg" alt="Choco Fairy Cake">
             <span>Choco Fairy Cake</span>
+            <span>₱3,900</span>
           </a>
         </td>
         <td>
           <a href="pics/pic2.jpg">
             <img src="pics/pic2.jpg" alt="Strawberry Frosted Cake">
             <span>Strawberry Frosted Cake</span>
+            <span>₱3,200</span>
           </a>
         </td>
         <td>
           <a href="pics/pic3.jpg">
             <img src="pics/pic3.jpg" alt="Coffee Nutted Cake">
             <span>Coffee Nutted Cake</span>
+            <span>₱2,500</span>
           </a>
         </td>
       </tr>
@@ -135,18 +144,21 @@
           <a href="pics/pic4.jpg">
             <img src="pics/pic4.jpg" alt="Rainbow Fantasy Cake">
             <span>Rainbow Fantasy Cake</span>
+            <span>₱3,500</span>
           </a>
         </td>
         <td>
           <a href="pics/pic5.jpg">
             <img src="pics/pic5.jpg" alt="Twirly Dark Chocolate">
             <span>Twirly Dark Chocolate</span>
+            <span>₱2,800</span>
           </a>
         </td>
         <td>
           <a href="pics/pic6.jpg">
             <img src="pics/pic6.jpg" alt="Sweet Macaroon Cake">
             <span>Sweet Macaroon Cake</span>
+            <span>₱2,900</span>
           </a>
         </td>
       </tr>

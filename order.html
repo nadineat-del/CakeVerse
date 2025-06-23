@@ -29,20 +29,16 @@
     form {
       max-width: 1000px;
       margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
     }
 
-    table {
-      width: 100%;
+    .section-box {
       background-color: #fffdf9;
-      border: none;
       border-radius: 15px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-      padding: 40px;
-    }
-
-    td {
-      padding: 15px;
-      vertical-align: top;
+      padding: 30px;
     }
 
     label {
@@ -102,15 +98,6 @@
         padding: 20px;
       }
 
-      table, td {
-        display: block;
-        width: 100%;
-      }
-
-      td {
-        padding: 10px 0;
-      }
-
       .options-group label {
         display: block;
         margin-bottom: 8px;
@@ -123,80 +110,71 @@
   </style>
 </head>
 <body>
-
   <h1>CakeVerse Customer Order Form</h1>
-
   <form action="invoice.html" method="get">
-    <table>
-      <tr>
-        <td><label for="firstName">First Name:</label></td>
-        <td><input type="text" name="textbox1" id="firstName" required></td>
-      </tr>
-      <tr>
-        <td><label for="lastName">Last Name:</label></td>
-        <td><input type="text" name="textbox2" id="lastName" required></td>
-      </tr>
-      <tr>
-        <td><label for="address">Address:</label></td>
-        <td><input type="text" name="textbox3" id="address" required></td>
-      </tr>
-      <tr>
-        <td><label for="branch">Select Branch:</label></td>
-        <td>
-          <select name="select1" id="branch" required>
-            <option value="">-- Please Select --</option>
-            <option value="Tondo Manila">Tondo, Manila Branch</option>
-            <option value="Caloocan">Caloocan Branch</option>
-            <option value="Malabon">Malabon Branch</option>
-          </select>
-        </td>
-      </tr>
 
-      <tr><td colspan="2"><h2>Order Layers</h2></td></tr>
-      <tr>
-        <td colspan="2" class="options-group center-text">
-          <label><input type="radio" name="layers" value="1" required>1 Layer</label>
-          <label><input type="radio" name="layers" value="2">2 Layers</label>
-          <label><input type="radio" name="layers" value="3">3 Layers</label>
-          <label><input type="radio" name="layers" value="4">4 Layers</label>
-          <label><input type="radio" name="layers" value="5">5 Layers</label>
-        </td>
-      </tr>
+    <div class="section-box">
+      <h2>Personal Information</h2>
+      <label for="firstName">First Name:</label>
+      <input type="text" name="textbox1" id="firstName" required>
 
-      <tr><td colspan="2"><h3>Order Toppings</h3></td></tr>
-      <tr>
-        <td colspan="2" class="options-group center-text">
-          <label><input type="checkbox" name="toppings" value="cherry">Cherries</label>
-          <label><input type="checkbox" name="toppings" value="sprinkles">Sprinkles</label>
-          <label><input type="checkbox" name="toppings" value="whipped">Whipped Cream</label>
-          <label><input type="checkbox" name="toppings" value="mango">Mangoes</label>
-          <label><input type="checkbox" name="toppings" value="strawberry">Strawberries</label>
-          <label><input type="checkbox" name="toppings" value="almond">Almonds</label>
-        </td>
-      </tr>
+      <label for="lastName">Last Name:</label>
+      <input type="text" name="textbox2" id="lastName" required>
 
-      <tr><td colspan="2"><h4>Cake Flavor (Choose only one)</h4></td></tr>
-      <tr>
-        <td colspan="2" class="options-group center-text">
-          <label><input type="radio" name="flavor" value="chocolate" required>Chocolate Cake</label>
-          <label><input type="radio" name="flavor" value="vanilla">Vanilla Cake</label>
-          <label><input type="radio" name="flavor" value="mocha">Mocha Cake</label>
-          <label><input type="radio" name="flavor" value="chiffon">Chiffon Cake</label>
-        </td>
-      </tr>
+      <label for="address">Address:</label>
+      <input type="text" name="textbox3" id="address" required>
 
-      <tr>
-        <td><label for="note">Additional Note:</label></td>
-        <td><textarea name="note" id="note" rows="4" placeholder="Any special requests..."></textarea></td>
-      </tr>
+      <label for="branch">Select Branch:</label>
+      <select name="select1" id="branch" required>
+        <option value="">-- Please Select --</option>
+        <option value="Tondo Manila">Tondo, Manila Branch</option>
+        <option value="Caloocan">Caloocan Branch</option>
+        <option value="Malabon">Malabon Branch</option>
+      </select>
+    </div>
 
-      <tr>
-        <td colspan="2" class="center-text">
-          <input type="submit" value="Submit Order">
-        </td>
-      </tr>
-    </table>
+    <div class="section-box">
+      <h2>Order Layers</h2>
+      <div class="options-group center-text">
+        <label><input type="radio" name="layers" value="1" required>1 Layer</label>
+        <label><input type="radio" name="layers" value="2">2 Layers</label>
+        <label><input type="radio" name="layers" value="3">3 Layers</label>
+        <label><input type="radio" name="layers" value="4">4 Layers</label>
+        <label><input type="radio" name="layers" value="5">5 Layers</label>
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h2>Order Toppings</h2>
+      <div class="options-group center-text">
+        <label><input type="checkbox" name="toppings" value="cherry">Cherries</label>
+        <label><input type="checkbox" name="toppings" value="sprinkles">Sprinkles</label>
+        <label><input type="checkbox" name="toppings" value="whipped">Whipped Cream</label>
+        <label><input type="checkbox" name="toppings" value="mango">Mangoes</label>
+        <label><input type="checkbox" name="toppings" value="strawberry">Strawberries</label>
+        <label><input type="checkbox" name="toppings" value="almond">Almonds</label>
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h2>Cake Flavor (Choose only one)</h2>
+      <div class="options-group center-text">
+        <label><input type="radio" name="flavor" value="chocolate" required>Chocolate Cake</label>
+        <label><input type="radio" name="flavor" value="vanilla">Vanilla Cake</label>
+        <label><input type="radio" name="flavor" value="mocha">Mocha Cake</label>
+        <label><input type="radio" name="flavor" value="chiffon">Chiffon Cake</label>
+      </div>
+    </div>
+
+    <div class="section-box">
+      <h3>Additional Note</h3>
+      <label for="note">Any special requests:</label>
+      <textarea name="note" id="note" rows="4" placeholder="Any special requests..."></textarea>
+    </div>
+
+    <div class="center-text">
+      <input type="submit" value="Submit Order">
+    </div>
   </form>
-
 </body>
 </html>
